@@ -44,7 +44,8 @@ document.querySelector('#encryptBnt').addEventListener('click', () => {
     const key = document.querySelector('#key').value
     try {
         const encrypted = machine.encrypt(message, key)
-        document.querySelector('.answer').textContent += encrypted
+        document.querySelector('.result').textContent += encrypted
+        document.querySelector('#message').textContent = encrypted
     } catch (e) {
         alert(e.message)
     }
@@ -55,7 +56,7 @@ document.querySelector('#decryptBnt').addEventListener('click', () => {
     const key = document.querySelector('#key').value
     try {
         const decrypted = machine.decrypt(message, key)
-        document.querySelector('.answer').textContent = decrypted
+        document.querySelector('.result').textContent = decrypted
     } catch (e) {
         alert(e.message)
     }

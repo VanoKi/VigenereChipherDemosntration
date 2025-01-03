@@ -36,3 +36,27 @@ class VigenereCipheringMachine {
         return this.common(string, key, 'decrypt')
     }
 }
+
+const machine = new VigenereCipheringMachine(true)
+
+document.querySelector('#encryptBnt').addEventListener('click', () => {
+    const message = document.querySelector('#message').value
+    const key = document.querySelector('#key').value
+    try {
+        const encrypted = machine.encrypt(message, key)
+        document.querySelector('.answer').textContent += encrypted
+    } catch (e) {
+        alert(e.message)
+    }
+})
+
+document.querySelector('#decryptBnt').addEventListener('click', () => {
+    const message = document.querySelector('#message').value
+    const key = document.querySelector('#key').value
+    try {
+        const decrypted = machine.decrypt(message, key)
+        document.querySelector('.answer').textContent = decrypted
+    } catch (e) {
+        alert(e.message)
+    }
+})
